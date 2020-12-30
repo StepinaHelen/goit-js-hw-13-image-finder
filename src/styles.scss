@@ -1,0 +1,131 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  /*
+   * CSS image reference example.
+   */
+  background-image: url('./images/bg-pattern.png');
+}
+
+ ul{
+  display: flex;
+  flex-wrap: wrap;
+   align-items: center; 
+   justify-content: space-around;
+   padding: 0px;
+}
+img{
+  max-width: 300px;
+}
+li{
+   max-width: 300px;
+   list-style: none;
+   margin: 15px
+}
+.stats{
+   display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    margin-top:15px;
+}
+.stats-item {
+ display: flex;
+  flex-direction: column;
+   align-items: center; 
+} 
+/* .photo-card {
+  margin: 15px
+} */
+
+.search-form, .container-button{
+  text-align: center;
+  margin: 0px auto;
+}
+input {
+  width: 300px;
+  height: 30px;
+  margin-top: 15px;
+}
+.is-hidden {
+  display:none;
+}
+.gallery {
+  margin: 10px;
+}
+.spinner.is-hidden {
+  display:none;
+}
+
+// spinner
+$color: #926def, #8c6ced, #876beb, #6565dd, #5f64db;
+// $color: #49b8e5, #1e98d4, #2a92d0, #3a88c8, #507cbe;
+// $color: #ec8cf0, #d189ee, #be50a6, #d10cc1, #e013ad;
+
+// body {
+//   overflow: hidden;
+// }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 10vh;
+  // overflow: hidden;
+}
+
+$circle-size: 20px;
+$circle-margin: 7px; 
+
+.circle {
+  width: $circle-size;
+  height: $circle-size;
+  border-radius: 50%;
+  margin: $circle-margin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:before {
+    content: "";
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: scale 2s infinite 
+      cubic-bezier(0, 0, 0.49, 1.02);
+  }
+}
+
+@for $i from 1 through 5 {
+  .circle-#{$i} {
+    background-color: nth($color, $i);
+    &:before {
+      background-color: nth($color, $i);
+      animation-delay: 200ms * $i;
+    }
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50%, 75% {
+    transform: scale(2.5);
+  }
+  78%, 100% {
+    opacity: 0;
+  }
+}
